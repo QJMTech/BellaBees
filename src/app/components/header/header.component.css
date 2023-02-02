@@ -1,0 +1,17 @@
+.small-txt-img {
+  max-height: 90%;
+}
+
+.large-txt-img {
+  max-width: 75%;
+}
+
+.fixedBar {
+  position: fixed;
+  height: 4rem;
+  z-index: 99999;
+}
+
+.toolbarOffset {
+  padding-top: 4rem;
+}

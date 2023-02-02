@@ -17,11 +17,16 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { HeaderComponent } from './components/header/header.component';
+import { ProductCardComponent } from './components/products/product-card/product-card.component';
+import { ProductsComponent } from './components/products/products.component';
+import { CommerceService } from './services/commerce.service';
 
 @NgModule({
   declarations: [
     AppComponent,
-    HeaderComponent
+    HeaderComponent,
+    ProductCardComponent,
+    ProductsComponent
   ],
   imports: [
     BrowserModule,
@@ -42,7 +47,7 @@ import { HeaderComponent } from './components/header/header.component';
     MatSnackBarModule,
 
   ],
-  providers: [],
+  providers: [CommerceService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

@@ -7,6 +7,11 @@
     --darkaccent: #f2fcf1;
     --warning: #de1422;
 }
+
+@font-face {
+  font-family: 'Canela';
+  src: url('./assets/Canela-Regular.ttf')
+}
 html,
 body {
     height: 100%;
@@ -33,5 +38,17 @@ body {
 
 .warning-color-bg {
   background: var(--warning);
+}
+
+.primary-color {
+  color: var(--primary);
+}
+
+.dark-accent {
+  color: var(--darkaccent);
+}
+
+.warning-color {
+color: var(--warning);
 }
 

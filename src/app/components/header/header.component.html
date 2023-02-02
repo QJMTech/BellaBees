@@ -1,5 +1,6 @@
-<mat-toolbar class="mx-auto justify-between dark-accent-bg">
-    <a routerLink="home"> Bella Bee's Thrifty Tees </a>
+<mat-toolbar class="mx-auto justify-between dark-accent-bg fixedBar">
+    <a routerLink="home"> Test </a>
+    <img class="small-txt-img" src="../../../assets/bellabeesnametag.png" />
     <button mat-icon-button [matMenuTriggerFor]="menu">
         <mat-icon [matBadge]="3" matBadgeColor="primary">
             shopping_cart
@@ -42,5 +43,15 @@
     </mat-menu>
 </mat-toolbar>
 
-<img class = "mx-auto" src = "../../../assets/landingpagetext.png">
-<img class = "mx-auto max-w-sm" src = "../../../assets/landingpagesymbols.png">
+<div class = "toolbarOffset">
+    <img
+        class="mx-auto large-txt-img"
+        src="../../../assets/landingpagetext.png"
+    />
+    <img
+        class="mx-auto max-w-sm"
+        src="../../../assets/landingpagesymbols.png"
+    />
+</div>
+
+<app-products></app-products>

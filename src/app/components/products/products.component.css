@@ -1,0 +1,10 @@
+.product-area {
+  max-width: 90%;
+}
+
+.product-title {
+  text-align: center;
+  font-family: "Canela";
+  font-size: 4rem;
+  line-height: 4rem;
+}
