@@ -19,7 +19,8 @@ body {
 }
 
 .mat-badge-content {
-    color: white;
+    background: transparent;
+    color: black;
 }
 
 .primary-color-bg {
