@@ -2,9 +2,35 @@
 @tailwind components;
 @tailwind utilities;
 
+:root {
+    --primary: #f4f9f3;
+    --darkaccent: #f2fcf1;
+    --warning: #de1422;
+}
 html,
 body {
     height: 100%;
 }
 
-body {margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif;}
+body {
+    margin: 0;
+    font-family: Roboto, "Helvetica Neue", sans-serif;
+    background: var(--primary);
+}
+
+.mat-badge-content {
+    color: white;
+}
+
+.primary-color-bg {
+    background: var(--primary);
+}
+
+.dark-accent-bg {
+    background: var(--darkaccent);
+}
+
+.warning-color-bg {
+  background: var(--warning);
+}
+

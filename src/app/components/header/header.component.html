@@ -1,4 +1,43 @@
-<mat-toolbar class="max-w-7xl mx-auto border-x justify-between">
+<mat-toolbar class="mx-auto justify-between dark-accent-bg">
     <a routerLink="home"> Bella Bee's Thrifty Tees </a>
-    <mat-icon [matBadge]="1" matBadgeColor = "primary">shopping_cart</mat-icon>
+    <button mat-icon-button [matMenuTriggerFor]="menu">
+        <mat-icon [matBadge]="3" matBadgeColor="primary">
+            shopping_cart
+        </mat-icon>
+    </button>
+
+    <mat-menu #menu="matMenu" class="">
+        <div class="p-3 divide-y divide-solid divider-color">
+            <div class="pb-3 flex justify-between">
+                <span class="mr-16">3 item(s)</span>
+                <a routerLink="cart">View Cart</a>
+            </div>
+            <div class="py-3">
+                <div class="flex justify-between font-light mb-2">
+                    Keyboard x 1
+                    <span class="font-bold">{{ "150" | currency }} </span>
+                </div>
+                <div class="flex justify-between font-light mb-2">
+                    Keyboard x 1
+                    <span class="font-bold">{{ "150" | currency }} </span>
+                </div>
+                <div class="flex justify-between font-light mb-2">
+                    Keyboard x 1
+                    <span class="font-bold">{{ "150" | currency }} </span>
+                </div>
+            </div>
+            <div class="flex justify-between pt-3 font-light">
+                Total:
+                <span class="font-bold"> {{ "450" | currency }} </span>
+            </div>
+            <div class="pt-3 flex justify-between">
+                <button class="bg-red-600 text-white w-15 h-15 p-3">
+                    Clear Cart
+                </button>
+                <button class="bg-green-600 text-white h-19 p-3">
+                    Checkout
+                </button>
+            </div>
+        </div>
+    </mat-menu>
 </mat-toolbar>
