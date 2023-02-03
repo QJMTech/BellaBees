@@ -1,11 +1,6 @@
 <h1 class="product-title p-10">From My Closet To Yours</h1>
 <div class="flex justify-center">
   <div class="grid grid-cols-2 gap-4 product-area pb-3">
-      <app-product-card></app-product-card>
-      <app-product-card></app-product-card>
-      <app-product-card></app-product-card>
-      <app-product-card></app-product-card>
-      <app-product-card></app-product-card>
-      <app-product-card></app-product-card>
+      <app-product-card *ngFor="let product of productArray" [product] = "product"></app-product-card>
   </div>
 </div>

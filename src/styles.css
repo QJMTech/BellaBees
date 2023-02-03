@@ -52,3 +52,6 @@ body {
 color: var(--warning);
 }
 
+.img-link {
+  cursor: pointer;
+}

@@ -1,17 +1,17 @@
 <mat-card class="text-center dark-accent-bg product-card">
   <div>
       <img
-          class="mb-1 mx-auto h-[200px]"
-          src="../../../assets/test.jpg"
+          class="mb-1 mx-auto h-[200px] img-link"
+          src={{product.image?.url}}
+          (click) = "openProductModal()"
       />
       <div class="w-full">
           <h5>Large</h5>
           <p class="truncate hover:whitespace-normal">
-              2017 AirForce Ones
+              {{product.name}}
           </p>
           <p>
-              Found these shoes at GoodWill in great condition,
-              unfortunately slightly too small for my feet!
+              {{product.description}}
           </p>
       </div>
       <div class="flex justify-between">

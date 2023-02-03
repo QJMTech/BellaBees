@@ -1,4 +1,5 @@
 import { NgModule } from '@angular/core';
+import { APP_INITIALIZER } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatGridListModule } from '@angular/material/grid-list';
@@ -19,7 +20,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { HeaderComponent } from './components/header/header.component';
 import { ProductCardComponent } from './components/products/product-card/product-card.component';
 import { ProductsComponent } from './components/products/products.component';
-import { CommerceService } from './services/commerce.service';
+import {MatDialogModule} from '@angular/material/dialog';
 
 @NgModule({
   declarations: [
@@ -45,9 +46,9 @@ import { CommerceService } from './services/commerce.service';
     MatTableModule,
     MatBadgeModule,
     MatSnackBarModule,
-
+    MatDialogModule,
   ],
-  providers: [CommerceService],
+  providers: [],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
