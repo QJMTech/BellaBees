@@ -2,20 +2,19 @@
   <div>
       <img
           class="mb-1 mx-auto h-[200px] img-link"
-          src={{product.image?.url}}
+          src={{product.assets[0].url}}
           (click) = "openProductModal()"
       />
       <div class="w-full">
-          <h5>Large</h5>
-          <p class="truncate hover:whitespace-normal">
+          <h1 class="title truncate hover:whitespace-normal">
               {{product.name}}
-          </p>
+          </h1>
           <p>
               {{product.description}}
           </p>
       </div>
       <div class="flex justify-between">
-          <span class="warning-color">{{ "150" | currency }} </span>
+          <span class="warning-color">{{ product.price.formatted | currency }} </span>
           <button>
               <mat-icon>shopping_cart</mat-icon>
           </button>

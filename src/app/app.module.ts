@@ -21,13 +21,15 @@ import { HeaderComponent } from './components/header/header.component';
 import { ProductCardComponent } from './components/products/product-card/product-card.component';
 import { ProductsComponent } from './components/products/products.component';
 import {MatDialogModule} from '@angular/material/dialog';
+import { ProductCardModalComponent } from './components/products/product-card/product-card-modal/product-card-modal.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     HeaderComponent,
     ProductCardComponent,
-    ProductsComponent
+    ProductsComponent,
+    ProductCardModalComponent
   ],
   imports: [
     BrowserModule,

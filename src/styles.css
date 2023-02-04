@@ -23,6 +23,10 @@ body {
     background: var(--primary);
 }
 
+.fancy-font {
+  font-family: "Canela";
+}
+
 .mat-badge-content {
     background: transparent;
     color: black;
@@ -54,4 +58,8 @@ color: var(--warning);
 
 .img-link {
   cursor: pointer;
+}
+
+.custom-dialog-container .mat-dialog-container {
+  background-color: var(--darkaccent);
 }

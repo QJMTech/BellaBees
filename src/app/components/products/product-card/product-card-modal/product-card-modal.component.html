@@ -1,0 +1,6 @@
+<div class = "mx-auto dark-accent-bg">
+  <h1 class = "title">{{data.name}}</h1>
+  <div class = "pb-3" *ngFor="let image of data.images" > 
+    <img [src] = "image.url">
+  </div>
+</div>

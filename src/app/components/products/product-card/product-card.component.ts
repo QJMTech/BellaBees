@@ -1,11 +1,12 @@
 import { Component, Input, OnInit } from "@angular/core";
 import { MatDialog } from "@angular/material/dialog";
 import { Product } from "@chec/commerce.js/types/product";
+import { ProductCardModalComponent } from "./product-card-modal/product-card-modal.component";
 
 @Component({
   selector: "app-product-card",
   templateUrl: `./product-card.component.html`,
-  styles: [],
+  styleUrls: ['./product-card.component.css'],
 })
 export class ProductCardComponent implements OnInit {
   @Input() product!: Product;
@@ -15,6 +16,7 @@ export class ProductCardComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
+    console.log(this.product)
     this.cleanUpDescription(this.product.description);
   }
 
@@ -24,9 +26,11 @@ export class ProductCardComponent implements OnInit {
   }
 
   public openProductModal () {
-    let dialogRef = this.dialog.open(ProductCardComponent, {
-      data: { name: 'austin'},
-      height: '400px',
+    let dialogRef = this.dialog.open(ProductCardModalComponent, {
+      panelClass: 'custom-dialog-container',
+      data: { name: this.product.name,
+      images: this.product.assets },
+      height: '60%',
       width: '600px',
     });
   }
