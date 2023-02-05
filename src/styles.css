@@ -63,3 +63,9 @@ color: var(--warning);
 .custom-dialog-container .mat-dialog-container {
   background-color: var(--darkaccent);
 }
+
+.mat-menu-content {
+  background-color: var(--darkaccent) !important;
+  padding-top: 0px !important;
+  padding-bottom: 0px !important;
+}

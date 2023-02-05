@@ -9,7 +9,7 @@
 .fixedBar {
   position: fixed;
   height: 4rem;
-  z-index: 99999;
+  z-index: 100;
 }
 
 .toolbarOffset {

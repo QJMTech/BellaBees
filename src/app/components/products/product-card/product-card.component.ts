@@ -25,7 +25,7 @@ export class ProductCardComponent implements OnInit {
     this.product.description = description.replace(/<\/?[^>]+(>|$)/g, "");
   }
 
-  public openProductModal () {
+  public openProductModal ():void  {
     let dialogRef = this.dialog.open(ProductCardModalComponent, {
       panelClass: 'custom-dialog-container',
       data: { name: this.product.name,
@@ -33,5 +33,9 @@ export class ProductCardComponent implements OnInit {
       height: '60%',
       width: '600px',
     });
+  }
+
+  public onAddToCart(): void{
+    console.log('Added to cart')
   }
 }
