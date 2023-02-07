@@ -4,7 +4,7 @@ import { LoadingService } from "src/services/loading.service";
 @Component({
   selector: "app-root",
   template: `
-    <div class="wrapper">
+    <div class="wrapper" [ngClass] = "{'noclick': loading$ | async}">
       <app-header></app-header>
       <div class="overlay" *ngIf="loading$ | async">
         <div class="spinner-wrapper">
