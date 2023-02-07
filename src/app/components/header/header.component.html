@@ -14,17 +14,9 @@
                 <a routerLink="cart">View Cart</a>
             </div>
             <div class="py-3">
-                <div class="flex justify-between font-light mb-2">
-                    Pants
-                    <span class="font-bold">{{ "150" | currency }} </span>
-                </div>
-                <div class="flex justify-between font-light mb-2">
-                    Skirt
-                    <span class="font-bold">{{ "150" | currency }} </span>
-                </div>
-                <div class="flex justify-between font-light mb-2">
-                    Monkey
-                    <span class="font-bold">{{ "150" | currency }} </span>
+                <div class="flex justify-between font-light mb-2" *ngFor="let cartItem of cartItems">
+                    {{cartItem.name}}
+                    <span class="font-bold">{{ this.cartItem.price.formatted_with_symbol }} </span>
                 </div>
             </div>
             <div class="flex justify-between pt-3 pb-3 font-light">
