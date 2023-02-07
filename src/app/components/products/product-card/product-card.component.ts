@@ -12,8 +12,6 @@ import { LoadingService } from "src/services/loading.service";
 })
 export class ProductCardComponent implements OnInit {
   @Input() product!: Product;
-  loading$ = this.loader.loading$;
-
   constructor(
     public loader: LoadingService,
     private dialog: MatDialog,

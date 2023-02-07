@@ -22,7 +22,7 @@ import { ProductCardComponent } from './components/products/product-card/product
 import { ProductsComponent } from './components/products/products.component';
 import {MatDialogModule} from '@angular/material/dialog';
 import { ProductCardModalComponent } from './components/products/product-card/product-card-modal/product-card-modal.component';
-import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
+import { HttpClientModule } from '@angular/common/http';
 import { MatProgressSpinnerModule} from "@angular/material/progress-spinner"
 
 @NgModule({

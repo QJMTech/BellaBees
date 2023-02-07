@@ -10,7 +10,6 @@ import { LoadingService } from "src/services/loading.service";
 })
 export class ProductsComponent implements OnInit {
   public productArray: Array<Product> = [];
-  loading$ = this.loader.loading$;
   constructor(public loader: LoadingService) {}
 
   ngOnInit(): void {

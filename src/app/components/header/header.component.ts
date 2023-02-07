@@ -11,6 +11,7 @@ import { LineItem } from "@chec/commerce.js/types/line-item";
 export class HeaderComponent implements OnInit {
   public cartItems: Array<LineItem> = [];
   public totalValue: string = '';
+  public isLoading: boolean = false;
 
   constructor(
     public cart: CartService,
@@ -18,6 +19,10 @@ export class HeaderComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
+    this.loader.getIsLoading().subscribe(value => {
+      this.isLoading = value;
+    })
+
     // RETRIEVE CART FROM SERVICE TO UPDATE DROPDOWN
     this.cart.getCustomerCart().subscribe(value => {
       this.cartItems = value.line_items;

@@ -1,7 +1,7 @@
 <mat-toolbar class="mx-auto justify-between dark-accent-bg fixedBar">
     <a routerLink="home"> Test </a>
     <img class="small-txt-img" src="../../../assets/bellabeesnametag.png" />
-    <button mat-icon-button [matMenuTriggerFor]="menu">
+    <button [disabled] = "isLoading" mat-icon-button [matMenuTriggerFor]="menu">
         <mat-icon [matBadge]="this.cartItems.length || null" matBadgeColor="primary">
             shopping_cart
         </mat-icon>
