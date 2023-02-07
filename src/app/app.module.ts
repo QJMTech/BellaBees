@@ -1,5 +1,4 @@
 import { NgModule } from '@angular/core';
-import { APP_INITIALIZER } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatGridListModule } from '@angular/material/grid-list';
@@ -20,10 +19,11 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { HeaderComponent } from './components/header/header.component';
 import { ProductCardComponent } from './components/products/product-card/product-card.component';
 import { ProductsComponent } from './components/products/products.component';
+import {MatTooltipModule} from '@angular/material/tooltip';
 import {MatDialogModule} from '@angular/material/dialog';
 import { ProductCardModalComponent } from './components/products/product-card/product-card-modal/product-card-modal.component';
 import { HttpClientModule } from '@angular/common/http';
-import { MatProgressSpinnerModule} from "@angular/material/progress-spinner"
+import { MatProgressSpinnerModule} from "@angular/material/progress-spinner";
 
 @NgModule({
   declarations: [
@@ -31,7 +31,7 @@ import { MatProgressSpinnerModule} from "@angular/material/progress-spinner"
     HeaderComponent,
     ProductCardComponent,
     ProductsComponent,
-    ProductCardModalComponent
+    ProductCardModalComponent,
   ],
   imports: [
     BrowserModule,
@@ -52,7 +52,8 @@ import { MatProgressSpinnerModule} from "@angular/material/progress-spinner"
     MatSnackBarModule,
     MatDialogModule,
     HttpClientModule,
-    MatProgressSpinnerModule
+    MatProgressSpinnerModule,
+    MatTooltipModule
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -26,7 +26,6 @@ export class HeaderComponent implements OnInit {
     // RETRIEVE CART FROM SERVICE TO UPDATE DROPDOWN
     this.cart.getCustomerCart().subscribe(value => {
       this.cartItems = value.line_items;
-      console.log(this.cartItems)
       this.totalValue = value.subtotal.formatted_with_symbol;
     })
   }

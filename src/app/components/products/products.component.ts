@@ -22,7 +22,6 @@ export class ProductsComponent implements OnInit {
     this.loader.show();
     commerce.products.list().then((product) => {
       this.productArray = product.data;
-      this.loader.hide();
     });
   }
 }

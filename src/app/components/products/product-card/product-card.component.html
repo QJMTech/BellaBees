@@ -15,7 +15,9 @@
       </div>
       <div class="flex justify-between">
           <span class="warning-color">{{ product.price.formatted | currency }} </span>
-          <button (click)="onAddToCart()">
+          <button (click)="onAddToCart()"
+          matTooltip="Add To Cart"
+          touchGestures = "on">
               <mat-icon>shopping_cart</mat-icon>
           </button>
       </div>

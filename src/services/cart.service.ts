@@ -27,7 +27,6 @@ export class CartService {
 
   // ADDS PRODUCT TO CART AND UPDATES CACHED CART
   addToCart(productToAdd: Product): Promise<any> {
-    console.log("addToCart");
     return commerce.cart.add(productToAdd.id, 1).then((response) => {
       this.customerCart$.next(response.cart);
     });
@@ -35,7 +34,6 @@ export class CartService {
 
   // CLEARS CART AND UPDATES LOCAL CART
   clearCart(): Promise<any> {
-    console.log("clearCart");
     return commerce.cart.empty().then((response) => {
       this.customerCart$.next(response.cart);
     });
