@@ -3,24 +3,24 @@
 @tailwind utilities;
 
 :root {
-    --primary: #f4f9f3;
-    --darkaccent: #f2fcf1;
-    --warning: #de1422;
+  --primary: #f4f9f3;
+  --darkaccent: #f2fcf1;
+  --warning: #de1422;
 }
 
 @font-face {
-  font-family: 'Canela';
-  src: url('./assets/Canela-Regular.ttf')
+  font-family: "Canela";
+  src: url("./assets/Canela-Regular.ttf");
 }
 html,
 body {
-    height: 100%;
+  height: 100%;
 }
 
 body {
-    margin: 0;
-    font-family: Roboto, "Helvetica Neue", sans-serif;
-    background: var(--primary);
+  margin: 0;
+  font-family: Roboto, "Helvetica Neue", sans-serif;
+  background: var(--primary);
 }
 
 .fancy-font {
@@ -28,16 +28,16 @@ body {
 }
 
 .mat-badge-content {
-    background: transparent;
-    color: black;
+  background: transparent;
+  color: black;
 }
 
 .primary-color-bg {
-    background: var(--primary);
+  background: var(--primary);
 }
 
 .dark-accent-bg {
-    background: var(--darkaccent);
+  background: var(--darkaccent);
 }
 
 .warning-color-bg {
@@ -53,7 +53,7 @@ body {
 }
 
 .warning-color {
-color: var(--warning);
+  color: var(--warning);
 }
 
 .img-link {
@@ -70,13 +70,26 @@ color: var(--warning);
   padding-bottom: 0px !important;
 }
 
-.mat-progress-spinner circle, .mat-spinner circle {
+.mat-progress-spinner circle,
+.mat-spinner circle {
   stroke: var(--warning);
-  }
+}
 
-  mat-progress-spinner {
-    position: absolute;
-    margin-left: 50%;
-    margin-top: 50%;
-    z-index: 5;
+.wrapper {
+  width: 100%;
+  height: 100%;
+}
+
+.overlay {
+  position: fixed;
+  z-index: 1002;
+  width: 100%;
+  height: 100%;
+  top: 50%;
+}
+
+.spinner-wrapper {
+  display: flex;
+  justify-content: center;
+  justify-items: center;
 }

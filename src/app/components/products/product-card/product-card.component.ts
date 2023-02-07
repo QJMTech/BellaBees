@@ -41,7 +41,8 @@ export class ProductCardComponent implements OnInit {
 
   public onAddToCart(): void{
     this.loader.show()
-    this.cart.addToCart(this.product)
-    this.loader.hide()
+    this.cart.addToCart(this.product).then((data => {
+      this.loader.hide()
+    }))
   }
 }

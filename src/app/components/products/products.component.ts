@@ -1,17 +1,17 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit } from "@angular/core";
 import * as Commerce from "@chec/commerce.js";
 import { Product } from "@chec/commerce.js/types/product";
-import { LoadingService } from 'src/services/loading.service';
+import { LoadingService } from "src/services/loading.service";
 
 @Component({
-  selector: 'app-products',
-  templateUrl: './products.component.html',
-  styleUrls: ['./products.component.css']
+  selector: "app-products",
+  templateUrl: "./products.component.html",
+  styleUrls: ["./products.component.css"],
 })
 export class ProductsComponent implements OnInit {
   public productArray: Array<Product> = [];
   loading$ = this.loader.loading$;
-  constructor(public loader: LoadingService) { }
+  constructor(public loader: LoadingService) {}
 
   ngOnInit(): void {
     // INIT COMMERCE INSTANCE FOR API REQS
@@ -20,10 +20,10 @@ export class ProductsComponent implements OnInit {
     );
 
     // CACHE ARRAY OF PRODUCTS TO REDUCE CALLS TO API
-    this.loader.show()
+    this.loader.show();
     commerce.products.list().then((product) => {
       this.productArray = product.data;
-      this.loader.hide()
+      this.loader.hide();
     });
   }
 }
