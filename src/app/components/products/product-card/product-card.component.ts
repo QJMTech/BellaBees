@@ -3,6 +3,7 @@ import { MatDialog } from "@angular/material/dialog";
 import { Product } from "@chec/commerce.js/types/product";
 import { ProductCardModalComponent } from "./product-card-modal/product-card-modal.component";
 import { CartService } from "src/services/cart.service";
+import { LoadingService } from "src/services/loading.service";
 
 @Component({
   selector: "app-product-card",
@@ -11,8 +12,10 @@ import { CartService } from "src/services/cart.service";
 })
 export class ProductCardComponent implements OnInit {
   @Input() product!: Product;
+  loading$ = this.loader.loading$;
 
   constructor(
+    public loader: LoadingService,
     private dialog: MatDialog,
     public cart: CartService
   ) {}
@@ -37,6 +40,8 @@ export class ProductCardComponent implements OnInit {
   }
 
   public onAddToCart(): void{
+    this.loader.show()
     this.cart.addToCart(this.product)
+    this.loader.hide()
   }
 }

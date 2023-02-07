@@ -69,3 +69,14 @@ color: var(--warning);
   padding-top: 0px !important;
   padding-bottom: 0px !important;
 }
+
+.mat-progress-spinner circle, .mat-spinner circle {
+  stroke: var(--warning);
+  }
+
+  mat-progress-spinner {
+    position: absolute;
+    margin-left: 50%;
+    margin-top: 50%;
+    z-index: 5;
+}
