@@ -2,6 +2,7 @@ import { Component, Input, OnInit } from "@angular/core";
 import { MatDialog } from "@angular/material/dialog";
 import { Product } from "@chec/commerce.js/types/product";
 import { ProductCardModalComponent } from "./product-card-modal/product-card-modal.component";
+import { CartService } from "src/services/cart.service";
 
 @Component({
   selector: "app-product-card",
@@ -12,11 +13,11 @@ export class ProductCardComponent implements OnInit {
   @Input() product!: Product;
 
   constructor(
-    private dialog: MatDialog
+    private dialog: MatDialog,
+    public cart: CartService
   ) {}
 
   ngOnInit(): void {
-    console.log(this.product)
     this.cleanUpDescription(this.product.description);
   }
 
@@ -36,6 +37,6 @@ export class ProductCardComponent implements OnInit {
   }
 
   public onAddToCart(): void{
-    console.log('Added to cart')
+    this.cart.addToCart(this.product)
   }
 }
