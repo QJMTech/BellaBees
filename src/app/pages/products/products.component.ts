@@ -2,6 +2,7 @@ import { Component, OnInit } from "@angular/core";
 import * as Commerce from "@chec/commerce.js";
 import { Product } from "@chec/commerce.js/types/product";
 import { LoadingService } from "src/services/loading.service";
+import { MESSAGES } from "src/assets/stringliteral.constants";
 
 @Component({
   selector: "app-products",
@@ -10,6 +11,8 @@ import { LoadingService } from "src/services/loading.service";
 })
 export class ProductsComponent implements OnInit {
   public productArray: Array<Product> = [];
+  messages = MESSAGES;
+  
   constructor(public loader: LoadingService) {}
 
   ngOnInit(): void {

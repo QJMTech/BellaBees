@@ -6,6 +6,7 @@
   --primary: #f4f9f3;
   --darkaccent: #f2fcf1;
   --warning: #de1422;
+  --success: #16A34A;
 }
 
 @font-face {
@@ -98,4 +99,16 @@ body {
 
 .mat-tooltip {
   font-size: 1rem !important;
+}
+
+.success-snackbar {
+  background: var(--success);
+  color: white;
+  font-weight: 500;
+}
+
+.warning-snackbar {
+  background: var(--warning);
+  color: white;
+  font-weight: 500;
 }

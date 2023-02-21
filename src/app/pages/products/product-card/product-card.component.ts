@@ -6,6 +6,7 @@ import { CartService } from "src/services/cart.service";
 import { LoadingService } from "src/services/loading.service";
 import { Cart } from "@chec/commerce.js/types/cart";
 import { MatSnackBar } from "@angular/material/snack-bar";
+import { MESSAGES } from "src/assets/stringliteral.constants";
 
 @Component({
   selector: "app-product-card",
@@ -15,6 +16,7 @@ import { MatSnackBar } from "@angular/material/snack-bar";
 export class ProductCardComponent implements OnInit {
   @Input() product!: Product;
   customerCart!: Cart;
+  messages = MESSAGES;
 
   constructor(
     public loader: LoadingService,
@@ -46,21 +48,22 @@ export class ProductCardComponent implements OnInit {
     });
   }
 
-  public openSnackBar(message: string): void {
-    let snackBarRef = this.snackbar.open(message, "", { duration: 2000 });
+  public openSnackBar(message: string, snackBarClass: string): void {
+    const snackBarRef = this.snackbar.open(message, "", { duration: 2000, panelClass: [snackBarClass] });
   }
 
   public onAddToCart(): void {
     // CHECK TO SEE IF ITEM IS ALREADY IN CART, THROW ERROR IF SO
     for (let cartItem of this.customerCart.line_items) {
       if (cartItem.product_id === this.product.id) {
-        this.openSnackBar("Item already in cart.");
+        this.openSnackBar(this.messages.alerts.addToCartWarning, "warning-snackbar");
         return;
       }
     }
     this.loader.show();
     this.cart.addToCart(this.product).then((data) => {
       this.loader.hide();
+      this.openSnackBar(this.messages.alerts.addToCartSuccess, "success-snackbar");
     });
   }
 }

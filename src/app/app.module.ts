@@ -17,11 +17,11 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { HeaderComponent } from './components/header/header.component';
-import { ProductCardComponent } from './components/products/product-card/product-card.component';
-import { ProductsComponent } from './components/products/products.component';
-import {MatTooltipModule} from '@angular/material/tooltip';
-import {MatDialogModule} from '@angular/material/dialog';
-import { ProductCardModalComponent } from './components/products/product-card/product-card-modal/product-card-modal.component';
+import { ProductCardComponent } from './pages/products/product-card/product-card.component';
+import { ProductsComponent } from './pages/products/products.component';
+import { MatTooltipModule } from '@angular/material/tooltip';
+import { MatDialogModule } from '@angular/material/dialog';
+import { ProductCardModalComponent } from './pages/products/product-card/product-card-modal/product-card-modal.component';
 import { HttpClientModule } from '@angular/common/http';
 import { MatProgressSpinnerModule} from "@angular/material/progress-spinner";
 

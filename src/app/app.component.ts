@@ -6,6 +6,7 @@ import { LoadingService } from "src/services/loading.service";
   template: `
     <div class="wrapper" [ngClass] = "{'noclick': loading$ | async}">
       <app-header></app-header>
+      <router-outlet></router-outlet>
       <div class="overlay" *ngIf="loading$ | async">
         <div class="spinner-wrapper">
           <mat-progress-spinner
@@ -25,6 +26,12 @@ export class AppComponent {
   constructor(public loader: LoadingService) {}
 
   ngOnInit() {
-    console.log("Welcome!");
+    console.log(" ██████╗ ██████╗ \n",
+    "██╔══██╗██╔══██╗\n",
+    "██████╦╝██████╦╝\n",
+    "██╔══██╗██╔══██╗\n",
+    "██████╦╝██████╦╝\n",
+    "╚═════╝ ╚═════╝ \n");
   }
 }
+
