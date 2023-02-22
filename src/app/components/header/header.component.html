@@ -1,5 +1,9 @@
 <mat-toolbar class="mx-auto justify-between dark-accent-bg fixedBar">
-    <a routerLink="home"> Home </a>
+  <button routerLink= "/home" [disabled] = "isLoading" mat-icon-button>
+    <mat-icon>
+        home
+    </mat-icon>
+</button>
     <img class="small-txt-img" src="../../../assets/bellabeesnametag.png" />
     <button [disabled] = "isLoading" mat-icon-button [matMenuTriggerFor]="menu">
         <mat-icon [matBadge]="this.cartItems.length || null" matBadgeColor="primary">
@@ -27,21 +31,10 @@
                 <button (click)="onClearCart()" class="bg-red-600 text-white w-15 h-15 rounded-md p-3">
                     Clear Cart
                 </button>
-                <button class="bg-green-600 text-white h-19 rounded-md p-3">
+                <button routerLink="/cart" class="bg-green-600 text-white h-19 rounded-md p-3">
                     Checkout
                 </button>
             </div>
         </div>
     </mat-menu>
 </mat-toolbar>
-
-<div class = "toolbarOffset">
-    <img
-        class="mx-auto large-txt-img"
-        src="../../../assets/landingpagetext.png"
-    />
-    <img
-        class="mx-auto max-w-sm"
-        src="../../../assets/landingpagesymbols.png"
-    />
-</div>

@@ -20,7 +20,7 @@ export class HeaderComponent implements OnInit {
     public cart: CartService,
     public loader: LoadingService,
     private snackbar: MatSnackBar,
-  ) { }
+  ) {}
 
   ngOnInit(): void {
     this.loader.getIsLoading().subscribe(value => {
