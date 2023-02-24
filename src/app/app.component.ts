@@ -1,10 +1,11 @@
 import { Component } from "@angular/core";
+import { LoaderService } from "src/services/loader.service";
 
 @Component({
   selector: "app-root",
   template: `
       <app-header></app-header>
-      <app-spinner></app-spinner>
+      <app-spinner *ngIf="loaderService.getLoading()"></app-spinner>
       <router-outlet></router-outlet>
   `,
   styles: [],
@@ -12,7 +13,7 @@ import { Component } from "@angular/core";
 export class AppComponent {
   title = "bb-store";
 
-  constructor() {}
+  constructor(public loaderService: LoaderService) {}
 
   ngOnInit() {
     console.log(" ██████╗ ██████╗ \n",

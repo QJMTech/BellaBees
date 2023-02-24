@@ -20,14 +20,11 @@ export class ProductCardComponent implements OnInit {
   constructor(
     private dialog: MatDialog,
     private snackbar: MatSnackBar,
-    public cart: CartService
+    public cart: CartService,
   ) {}
 
   ngOnInit(): void {
-    // SUBSCRIBE TO CART
-    this.cart.getCustomerCart().subscribe((value) => {
-      this.customerCart = value;
-    });
+    // SUBSCRIBE TO CART TO NOTE CHANGES
     this.cleanUpDescription(this.product.description);
   }
 
@@ -50,6 +47,9 @@ export class ProductCardComponent implements OnInit {
   }
 
   public onAddToCart(): void {
+    // FETCH CURRENT VERSION OF CART
+    this.customerCart = this.cart.getLatestCustomerCart();
+    
     // CHECK TO SEE IF ITEM IS ALREADY IN CART, THROW ERROR IF SO
     for (let cartItem of this.customerCart.line_items) {
       if (cartItem.product_id === this.product.id) {

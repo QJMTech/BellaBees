@@ -14,12 +14,18 @@ const commerce = new Commerce(
 })
 export class CartService {
   private customerCart$: Subject<Cart> = new Subject<Cart>();
+  private customerCart!: Cart; // Member variable to store the latest cart value
 
   constructor(private loaderService: LoaderService) {
     this.loaderService.addPendingRequest();
     commerce.cart.retrieve().then((cart) => {
+      this.customerCart = cart; // Store the latest cart value
       this.customerCart$.next(cart);
       this.loaderService.removePendingRequest();
+    });
+    // Subscribe to the customerCart$ observable to update the member variable
+    this.customerCart$.subscribe((cart) => {
+      this.customerCart = cart;
     });
   }
 
@@ -43,5 +49,10 @@ export class CartService {
       this.customerCart$.next(response.cart);
       this.loaderService.removePendingRequest();
     });
+  }
+
+  // Get the latest cart value
+  getLatestCustomerCart(): Cart {
+    return this.customerCart;
   }
 }
