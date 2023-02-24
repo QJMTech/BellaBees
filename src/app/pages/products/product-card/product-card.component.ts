@@ -3,7 +3,6 @@ import { MatDialog } from "@angular/material/dialog";
 import { Product } from "@chec/commerce.js/types/product";
 import { ProductCardModalComponent } from "./product-card-modal/product-card-modal.component";
 import { CartService } from "src/services/cart.service";
-import { LoadingService } from "src/services/loading.service";
 import { Cart } from "@chec/commerce.js/types/cart";
 import { MatSnackBar } from "@angular/material/snack-bar";
 import { MESSAGES } from "src/assets/stringliteral.constants";
@@ -19,7 +18,6 @@ export class ProductCardComponent implements OnInit {
   messages = MESSAGES;
 
   constructor(
-    public loader: LoadingService,
     private dialog: MatDialog,
     private snackbar: MatSnackBar,
     public cart: CartService
@@ -31,7 +29,6 @@ export class ProductCardComponent implements OnInit {
       this.customerCart = value;
     });
     this.cleanUpDescription(this.product.description);
-    this.loader.hide();
   }
 
   // FUNCTION TO TAKE HTML TAGS OUT OF DESCRIPTION
@@ -60,9 +57,7 @@ export class ProductCardComponent implements OnInit {
         return;
       }
     }
-    this.loader.show();
     this.cart.addToCart(this.product).then((data) => {
-      this.loader.hide();
       this.openSnackBar(this.messages.alerts.addToCartSuccess, "success-snackbar");
     });
   }

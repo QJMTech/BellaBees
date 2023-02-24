@@ -1,8 +1,9 @@
 import { Injectable } from "@angular/core";
-import { BehaviorSubject, Observable, Subject } from "rxjs";
+import { Observable, Subject } from "rxjs";
 import * as Commerce from "@chec/commerce.js";
 import { Cart } from "@chec/commerce.js/types/cart";
 import { Product } from "@chec/commerce.js/types/product";
+import { LoaderService } from "../services/loader.service";
 
 const commerce = new Commerce(
   "pk_test_43541828e887bed3fd26188d31b8df5efd349f1144ac2"
@@ -14,11 +15,12 @@ const commerce = new Commerce(
 export class CartService {
   private customerCart$: Subject<Cart> = new Subject<Cart>();
 
-  constructor() {
-    console.log("CartService constructed");
-    commerce.cart
-      .retrieve()
-      .then((cart) => (this.customerCart$.next(cart)));
+  constructor(private loaderService: LoaderService) {
+    this.loaderService.addPendingRequest();
+    commerce.cart.retrieve().then((cart) => {
+      this.customerCart$.next(cart);
+      this.loaderService.removePendingRequest();
+    });
   }
 
   getCustomerCart(): Observable<Cart> {
@@ -27,15 +29,19 @@ export class CartService {
 
   // ADDS PRODUCT TO CART AND UPDATES CACHED CART
   addToCart(productToAdd: Product): Promise<any> {
+    this.loaderService.addPendingRequest();
     return commerce.cart.add(productToAdd.id, 1).then((response) => {
       this.customerCart$.next(response.cart);
+      this.loaderService.removePendingRequest();
     });
   }
 
   // CLEARS CART AND UPDATES LOCAL CART
   clearCart(): Promise<any> {
+    this.loaderService.addPendingRequest();
     return commerce.cart.empty().then((response) => {
       this.customerCart$.next(response.cart);
+      this.loaderService.removePendingRequest();
     });
   }
 }

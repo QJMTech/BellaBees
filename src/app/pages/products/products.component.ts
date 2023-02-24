@@ -1,7 +1,6 @@
 import { Component, OnInit } from "@angular/core";
 import * as Commerce from "@chec/commerce.js";
 import { Product } from "@chec/commerce.js/types/product";
-import { LoadingService } from "src/services/loading.service";
 import { MESSAGES } from "src/assets/stringliteral.constants";
 
 @Component({
@@ -13,7 +12,7 @@ export class ProductsComponent implements OnInit {
   public productArray: Array<Product> = [];
   messages = MESSAGES;
   
-  constructor(public loader: LoadingService) {}
+  constructor() {}
 
   ngOnInit(): void {
     // INIT COMMERCE INSTANCE FOR API REQS
@@ -22,7 +21,6 @@ export class ProductsComponent implements OnInit {
     );
 
     // CACHE ARRAY OF PRODUCTS TO REDUCE CALLS TO API
-    this.loader.show();
     commerce.products.list().then((product) => {
       this.productArray = product.data;
     });
