@@ -1,23 +1,23 @@
-import { Component, OnInit } from "@angular/core";
-import * as Commerce from "@chec/commerce.js";
-import { CartService } from "src/services/cart.service";
+import { Component, OnInit } from '@angular/core';
+import { CartService } from '../../../services/cart.service';
+import { Cart } from '@chec/commerce.js/types/cart';
 
 @Component({
-  selector: "app-cart",
-  templateUrl: "./cart.component.html",
+  selector: 'app-cart',
+  templateUrl: './cart.component.html',
+  styleUrls: ['./cart.component.css']
 })
 export class CartComponent implements OnInit {
-  public isLoading: boolean = false;
-  constructor(public cart: CartService) {}
+  customerCart!: Cart;
 
-  ngOnInit(): void {
-    const commerce = new Commerce(
-      "pk_test_43541828e887bed3fd26188d31b8df5efd349f1144ac2"
-    );
+  constructor(private cartService: CartService) { }
 
-    // CACHE ARRAY OF PRODUCTS TO REDUCE CALLS TO API
-    commerce.products.list().then((product) => {
-      console.log(product);
-    });
+  ngOnInit() {
+    this.customerCart = this.cartService.getLatestCustomerCart();
+    console.log(this.customerCart);
+  }
+
+  public onClearCart(): void {
+    console.log(this.customerCart)
   }
 }

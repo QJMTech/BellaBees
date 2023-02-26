@@ -26,6 +26,7 @@ import { HTTP_INTERCEPTORS, HttpClientModule } from "@angular/common/http";
 import { MatProgressSpinnerModule } from "@angular/material/progress-spinner";
 import { SpinnerComponent } from "./components/spinner/spinner.component";
 import { LoadingInterceptor } from "src/loading.interceptor";
+import { CartComponent } from "./pages/cart/cart.component";
 
 @NgModule({
   declarations: [
@@ -35,6 +36,7 @@ import { LoadingInterceptor } from "src/loading.interceptor";
     ProductsComponent,
     ProductCardModalComponent,
     SpinnerComponent,
+    CartComponent
   ],
   imports: [
     BrowserModule,
