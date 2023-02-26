@@ -1,5 +1,5 @@
 import { Injectable } from "@angular/core";
-import { Observable, Subject } from "rxjs";
+import { Observable, BehaviorSubject } from "rxjs";
 import * as Commerce from "@chec/commerce.js";
 import { Cart } from "@chec/commerce.js/types/cart";
 import { Product } from "@chec/commerce.js/types/product";
@@ -13,10 +13,12 @@ const commerce = new Commerce(
   providedIn: "root",
 })
 export class CartService {
-  private customerCart$: Subject<Cart> = new Subject<Cart>();
+  private customerCart$: BehaviorSubject<Cart>;
   private customerCart!: Cart; // Member variable to store the latest cart value
 
   constructor(private loaderService: LoaderService) {
+    this.customerCart$ = new BehaviorSubject<Cart>(this.customerCart);
+
     this.loaderService.addPendingRequest();
     commerce.cart.retrieve().then((cart) => {
       this.customerCart = cart; // Store the latest cart value
@@ -26,11 +28,12 @@ export class CartService {
     // Subscribe to the customerCart$ observable to update the member variable
     this.customerCart$.subscribe((cart) => {
       this.customerCart = cart;
+      console.log(this.customerCart)
     });
   }
 
-  getCustomerCart(): Observable<Cart> {
-    return this.customerCart$.asObservable();
+  getCustomerCart(): BehaviorSubject<Cart> {
+    return this.customerCart$;
   }
 
   // ADDS PRODUCT TO CART AND UPDATES CACHED CART

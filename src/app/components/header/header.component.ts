@@ -23,8 +23,8 @@ export class HeaderComponent implements OnInit {
   ngOnInit(): void {
     // RETRIEVE CART FROM SERVICE TO UPDATE DROPDOWN
     this.cart.getCustomerCart().subscribe(value => {
-      this.cartItems = value.line_items;
-      this.totalValue = value.subtotal.formatted_with_symbol;
+      this.cartItems = value?.line_items || [];
+      this.totalValue = value?.subtotal.formatted_with_symbol || '';
     })
   }
 
