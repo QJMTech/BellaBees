@@ -1,9 +1,21 @@
 .small-txt-img {
   max-height: 90%;
+  margin: 0 auto;
 }
 
 .fixedBar {
   position: fixed;
   height: 4rem;
   z-index: 100;
+}
+
+a {
+  text-decoration: none;
+}
+
+.flex {
+  display: flex;
+}
+.items-center {
+  align-items: center;
 }

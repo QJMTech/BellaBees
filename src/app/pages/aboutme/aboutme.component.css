@@ -3,7 +3,7 @@
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  height: 100%;
+  height: 100% - 6rem;
   max-width: 600px; /* Set your desired max-width value */
   margin: 0 auto; /* Center the element horizontally */
   text-align: center;
