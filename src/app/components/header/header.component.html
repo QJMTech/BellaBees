@@ -1,40 +1,47 @@
 <mat-toolbar class="mx-auto justify-between dark-accent-bg fixedBar">
   <button routerLink= "/home" [disabled] = "isLoading" mat-icon-button>
     <mat-icon>
-        home
+      home
     </mat-icon>
-</button>
-    <img class="small-txt-img" src="../../../assets/bellabeesnametag.png" />
-    <button [disabled] = "isLoading" mat-icon-button [matMenuTriggerFor]="menu">
-        <mat-icon [matBadge]="this.cartItems.length || null" matBadgeColor="primary">
-            shopping_cart
-        </mat-icon>
+  </button>
+  <img class="small-txt-img" src="../../../assets/bellabeesnametag.png" />
+  <div class="flex items-center">
+    <button [disabled] = "isLoading" mat-icon-button routerLink="/aboutme">
+      <mat-icon>
+        person
+      </mat-icon>
     </button>
+    <button [disabled] = "isLoading" mat-icon-button [matMenuTriggerFor]="menu">
+      <mat-icon [matBadge]="this.cartItems.length || null" matBadgeColor="primary">
+        shopping_cart
+      </mat-icon>
+    </button>
+  </div>
 
-    <mat-menu #menu="matMenu" class = "">
-        <div class="p-3 divide-y divide-solid divider-color dark-accent-bg ">
-            <div class="pb-3 flex justify-between">
-                <span class="mr-16">{{this.cartItems.length}} item(s)</span>
-                <a routerLink="cart">View Cart</a>
-            </div>
-            <div class="py-3">
-                <div class="flex justify-between font-light mb-2" *ngFor="let cartItem of cartItems">
-                    {{cartItem.name}}
-                    <span class="font-bold">{{ this.cartItem.price.formatted_with_symbol }} </span>
-                </div>
-            </div>
-            <div class="flex justify-between pt-3 pb-3 font-light">
-                Subtotal:
-                <span class="font-bold"> {{ this.totalValue }} </span>
-            </div>
-            <div class="pt-3 flex justify-between">
-                <button (click)="onClearCart()" class="bg-red-600 text-white w-15 h-15 rounded-md p-3">
-                    Clear Cart
-                </button>
-                <button routerLink="/cart" class="bg-green-600 text-white h-19 rounded-md p-3">
-                    Checkout
-                </button>
-            </div>
+  <mat-menu #menu="matMenu" class = "">
+    <div class="p-3 divide-y divide-solid divider-color dark-accent-bg ">
+      <div class="pb-3 flex justify-between">
+        <span class="mr-16">{{this.cartItems.length}} item(s)</span>
+        <a routerLink="cart">View Cart</a>
+      </div>
+      <div class="py-3">
+        <div class="flex justify-between font-light mb-2" *ngFor="let cartItem of cartItems">
+          {{cartItem.name}}
+          <span class="font-bold">{{ this.cartItem.price.formatted_with_symbol }} </span>
         </div>
-    </mat-menu>
+      </div>
+      <div class="flex justify-between pt-3 pb-3 font-light">
+        Subtotal:
+        <span class="font-bold"> {{ this.totalValue }} </span>
+      </div>
+      <div class="pt-3 flex justify-between">
+        <button (click)="onClearCart()" class="bg-red-600 text-white w-15 h-15 rounded-md p-3">
+          Clear Cart
+        </button>
+        <button routerLink="/cart" class="bg-green-600 text-white h-19 rounded-md p-3">
+          Checkout
+        </button>
+      </div>
+    </div>
+  </mat-menu>
 </mat-toolbar>

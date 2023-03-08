@@ -1,0 +1,28 @@
+:host {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  max-width: 600px; /* Set your desired max-width value */
+  margin: 0 auto; /* Center the element horizontally */
+  text-align: center;
+}
+
+img {
+  border: 4px solid #fff;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+}
+
+a {
+  color: #666;
+  transition: all 0.3s ease-in-out;
+}
+
+a:hover {
+  color: #333;
+}
+
+.toolbarOffset{
+  padding-top: 6rem;
+}

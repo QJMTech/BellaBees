@@ -4,9 +4,9 @@ import { LoaderService } from "src/services/loader.service";
 @Component({
   selector: "app-root",
   template: `
-      <app-header></app-header>
-      <app-spinner *ngIf="loaderService.getLoading()"></app-spinner>
-      <router-outlet></router-outlet>
+    <app-header></app-header>
+    <app-spinner *ngIf="loaderService.getLoading()"></app-spinner>
+    <router-outlet></router-outlet>
   `,
   styles: [],
 })
@@ -16,12 +16,13 @@ export class AppComponent {
   constructor(public loaderService: LoaderService) {}
 
   ngOnInit() {
-    console.log(" ██████╗ ██████╗ \n",
-    "██╔══██╗██╔══██╗\n",
-    "██████╦╝██████╦╝\n",
-    "██╔══██╗██╔══██╗\n",
-    "██████╦╝██████╦╝\n",
-    "╚═════╝ ╚═════╝ \n");
+    console.log(
+      " ██████╗ ██████╗ \n",
+      "██╔══██╗██╔══██╗\n",
+      "██████╦╝██████╦╝\n",
+      "██╔══██╗██╔══██╗\n",
+      "██████╦╝██████╦╝\n",
+      "╚═════╝ ╚═════╝ \n"
+    );
   }
 }
-
