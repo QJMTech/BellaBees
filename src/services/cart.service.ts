@@ -44,6 +44,15 @@ export class CartService {
     });
   }
 
+  // REMOVES PRODUCT TO CART AND UPDATES CACHED CART
+  removeFromCart(productToRemove: Product): Promise<any> {
+    this.loaderService.addPendingRequest();
+    return commerce.cart.remove(productToRemove.id).then((response) => {
+      this.customerCart$.next(response.cart);
+      this.loaderService.removePendingRequest();
+    });
+  }
+
   // CLEARS CART AND UPDATES LOCAL CART
   clearCart(): Promise<any> {
     this.loaderService.addPendingRequest();

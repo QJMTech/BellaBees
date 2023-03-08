@@ -1,55 +1,38 @@
 <body class="cart">
-  <div
-    class="toolbarOffset mx-auto w-4/5 py-2"
-    *ngIf="
-      customerCart &&
-      customerCart.line_items &&
-      customerCart.line_items.length > 0
-    "
-  >
+  <div class="toolbarOffset mx-auto w-4/5 py-2 no-padding"
+    *ngIf="customerCart && customerCart.line_items && customerCart.line_items.length > 0">
     <table mat-table [dataSource]="customerCart.line_items">
+      <ng-container matColumnDef="subtract">
+        <th mat-header-cell *matHeaderCellDef class = "subtract-header"></th>
+        <td mat-cell *matCellDef="let item" class="subtract-cell">
+          <div class="subtract-container">
+            <button mat-icon-button color="warn" matTooltip="Remove" (click)="removeFromCart(item)">
+              <mat-icon>remove_circle_outline</mat-icon>
+            </button>
+          </div>
+        </td>
+      </ng-container>
       <ng-container matColumnDef="image">
-        <th mat-header-cell *matHeaderCellDef class="column-spacing">
-          Product Image
-        </th>
+        <th mat-header-cell *matHeaderCellDef class="column-spacing">Product Image</th>
         <td class="column-spacing" mat-cell *matCellDef="let item">
-          <img
-            class="h-100 w-100 md:h-[200px] md:w-[200px]"
-            src="{{ item.image.url }}"
-          />
+          <img class="h-100 w-100 md:h-[200px] md:w-[200px]" src="{{ item.image.url }}" />
         </td>
       </ng-container>
       <ng-container matColumnDef="name">
-        <th mat-header-cell *matHeaderCellDef class="column-spacing">
-          Product Name
-        </th>
-        <td mat-cell *matCellDef="let item" class="column-spacing">
-          {{ item.name }}
-        </td>
+        <th mat-header-cell *matHeaderCellDef class="column-spacing">Product Name</th>
+        <td mat-cell *matCellDef="let item" class="column-spacing">{{ item.name }}</td>
       </ng-container>
       <ng-container matColumnDef="price">
         <th mat-header-cell *matHeaderCellDef class="column-spacing">Price</th>
-        <td mat-cell *matCellDef="let item" class="column-spacing">
-          {{ item.price.formatted_with_symbol }}
-        </td>
+        <td mat-cell *matCellDef="let item" class="column-spacing">{{ item.price.formatted_with_symbol }}</td>
       </ng-container>
-      <tr mat-header-row *matHeaderRowDef="['image', 'name', 'price']"></tr>
-      <tr
-        mat-row
-        *matRowDef="let row; columns: ['image', 'name', 'price']"
-      ></tr>
+      <tr mat-header-row *matHeaderRowDef="['subtract', 'image', 'name', 'price']"></tr>
+      <tr mat-row *matRowDef="let row; columns: ['subtract', 'image', 'name', 'price']"></tr>
     </table>
   </div>
-
-  <div
-    *ngIf="
-      customerCart &&
-      customerCart.line_items &&
-      customerCart.line_items.length == 0
-    "
-    class="flex flex-col items-center justify-center h-screen">
-  <img src="../../../assets/sad_bee.png" class="max-w-full h-auto">
-  <p class = "text-lg">Your cart is empty.</p>
-  <button class="mt-4 px-4 py-2 shopping-button text-white rounded-md shadow-md" routerLink="/home">Start Shopping!</button>
-</div>
+  <div *ngIf="customerCart && customerCart.line_items && customerCart.line_items.length == 0" class="flex flex-col items-center justify-center h-screen">
+    <img src="../../../assets/sad_bee.png" class="max-w-full h-auto">
+    <p class="text-lg">Your cart is empty.</p>
+    <button class="mt-4 px-4 py-2 shopping-button text-white rounded-md shadow-md" routerLink="/home">Start Shopping!</button>
+  </div>
 </body>

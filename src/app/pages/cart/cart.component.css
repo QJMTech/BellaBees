@@ -29,3 +29,18 @@ tr:nth-child(even) {
 .shopping-button {
   background-color: #16A34A;
 }
+
+th.mat-header-cell:first-of-type, td.mat-cell:first-of-type, td.mat-footer-cell:first-of-type {
+  padding-left: 0px;
+}
+
+.subtract-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+}
+
+.subtract-header {
+  width: 1rem; /* Set the max width to 50px */
+}
