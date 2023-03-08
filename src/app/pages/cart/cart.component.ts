@@ -23,6 +23,5 @@ export class CartComponent implements OnInit {
   }
 
   public onClearCart(): void {
-    console.log(this.customerCart);
   }
 }

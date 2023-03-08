@@ -28,7 +28,6 @@ export class CartService {
     // Subscribe to the customerCart$ observable to update the member variable
     this.customerCart$.subscribe((cart) => {
       this.customerCart = cart;
-      console.log(this.customerCart)
     });
   }
 

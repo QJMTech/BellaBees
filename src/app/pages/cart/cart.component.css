@@ -1,3 +1,31 @@
 .toolbarOffset {
-  padding-top: 4rem;
+  padding-top: 6rem;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  border-radius:.5rem;
+  overflow: hidden; /* To hide overflowing content if the table has a fixed height */
+}
+th,
+td {
+  text-align: left;
+  border-bottom: 1px solid #FEF6F7;
+}
+th {
+  background-color: #f2f2f2;
+  padding: 0 10px;
+}
+
+tr:nth-child(even) {
+  background-color: #f2f2f2;
+}
+
+.column-spacing {
+  padding-right: 10px;
+}
+
+.shopping-button {
+  background-color: #16A34A;
 }
